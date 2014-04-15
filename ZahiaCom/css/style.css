@@ -1,0 +1,81 @@
+body{
+  background-image: url(../img/bd-bg.jpg);
+}
+.contact_data li {
+padding: 10px 0;
+color: #666;
+border-bottom: 1px solid #E0E0E0;
+}
+
+#horario{
+/*    width: 100%;*/
+    min-width: auto;
+    max-width: 250px;
+    list-style: none;
+    margin-left: -5px;
+}
+
+#horario li{
+   border-bottom: 1px solid #E0E0E0;
+}
+
+#leermas{
+    background: transparent;
+    border: 1px solid #E0E0E0;
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+}
+
+#leermas:hover {
+    
+    background: white;
+    color:gray;
+    
+}
+#leermas2{
+    background: #5CFCFF;
+    border: 1px solid #E0E0E0;
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+}
+
+#leermas2:hover {
+    
+    opacity: 0.5;
+    
+}
+#leermas3{
+    background: #33ccff;
+    border: 1px solid #E0E0E0;
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+}
+
+#leermas3:hover {
+    
+    opacity: 0.5;
+    
+}
+#leermas4{
+    background: #0099ff;
+    border: 1px solid #E0E0E0;
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+}
+
+#leermas4:hover {
+    
+    opacity: 0.5;
+    
+}
+
+ html, body, #map_canvas {
+        height: 300px;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+}
