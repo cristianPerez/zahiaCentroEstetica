@@ -6,11 +6,11 @@ function loginUsuario(){
         data:{"usernamelog": $('#usernamelog').val(),"passlog": $('#passlog').val()},
         type: 'GET',
 //        url: "http://www.zahia.com.co/administrator/Controlador/Fachada.php?clase=Registro_login&metodo=login_usuario",
-        url: "http://localhost/zahiadmin/Controlador/Fachada.php?clase=Registro_login&metodo=login_usuario",
+        url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Registro_login&metodo=login_usuario",
         success: function(data) {
             if(data === 'si'){
 //                window.location.href="http://www.zahia.com.co/administrator/Vista/home.php";
-                window.location.href="http://localhost/zahiadmin/Vista/home.php";
+                window.location.href="http://localhost/zahiaCentroEstetica/zahiadmin/Vista/home.php";
             }
             else if(data === 'no')
             {
@@ -48,18 +48,18 @@ function registrar_paciente(){
             "quirurgicos": $('#antQuirurgicos').val()
             },
         type: 'GET',
-        url: "http://localhost/zahiadmin/Controlador/Fachada.php?clase=Registro_login&metodo=registro_paciente",
+        url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Registro_login&metodo=registro_paciente",
 //        url: "http://www.zahia.com.co/administrator/Controlador/Fachada.php?clase=Registro_login&metodo=registro_paciente",
         success: function(data) {
             if(data.respuesta==='si'){
                 window.alert("Registrado satisfactoriamente!");
-                window.location.href="http://localhost/zahiadmin/Vista/home.php";
+                window.location.href="http://localhost/zahiaCentroEstetica/zahiadmin/Vista/home.php";
 //                window.location.href="http://www.zahia.com.co/administrator/Vista/home.php";
             }
             else if(data === 'no')
             {
                 window.alert("ocurrio un problema intentelo de nuevo");
-                window.location.href="http://localhost/zahiadmin/Vista/registrarPaciente.php";
+                window.location.href="http://localhost/zahiaCentroEstetica/zahiadmin/Vista/registrarPaciente.php";
 //                window.location.href="http://www.zahia.com.co/administrator/Vista/registrarPaciente.php";
             }
         },
@@ -86,11 +86,11 @@ function limpiarFormulario(){
 function cerrar_session(){
     $.ajax({
         dataType: "json",
-        url: "http://localhost/zahiadmin/Controlador/Fachada.php?clase=Registro_login&metodo=cerrar_sesion",
+        url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Registro_login&metodo=cerrar_sesion",
 //        url: "http://www.zahia.com.co/administrator/Controlador/Fachada.php?clase=Registro_login&metodo=cerrar_sesion",
         success: function(data) {
             if(data === 'si'){
-                window.location.href="http://localhost/zahiadmin/";
+                window.location.href="http://localhost/zahiaCentroEstetica/zahiadmin/";
 //                window.location.href="http://www.zahia.com.co/administrator/";
             }
             else if(data === 'no')

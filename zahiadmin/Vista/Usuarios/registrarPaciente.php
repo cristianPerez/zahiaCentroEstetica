@@ -7,58 +7,17 @@ include '../checksession.php';
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="UTF-8">
         <title>zahia</title>
-        <link rel="stylesheet"  href="../../css/bootstrap2.min.css" type="text/css" media="all">
+        <link rel="stylesheet"  href="../../css/bootstrap.min.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap.css" type="text/css" media="all">
-        <!--<link rel="stylesheet"  href="../../css/bootstrap-combined.min.css" type="text/css" media="all">-->
+        <link rel="stylesheet"  href="../../css/bootstrap-combined.min.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/style.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/signin.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap-datetimepicker.min.css" type="text/css" media="all">
-        <!--<link rel="stylesheet"  href="../../css/bootstrap-responsive.css" type="text/css" media="all">-->
-      
-       
+        <link rel="stylesheet"  href="../../css/bootstrap-responsive.css" type="text/css" media="all">
     </head>
     <body>
-        
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="http://getbootstrap.com/examples/navbar-fixed-top/#">Project name</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Home</a></li>
-            <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#about">About</a></li>
-            <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="http://getbootstrap.com/examples/navbar-fixed-top/#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Action</a></li>
-                <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Another action</a></li>
-                <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Separated link</a></li>
-                <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://getbootstrap.com/examples/navbar/">Default</a></li>
-            <li><a href="http://getbootstrap.com/examples/navbar-static-top/">Static top</a></li>
-            <li class="active"><a href="./Fixed Top Navbar Example for Bootstrap_files/Fixed Top Navbar Example for Bootstrap.htm">Fixed top</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-        
         <div class="row-fluid">
-            <a href="../home.php" class="btn btn-primary" style="position: fixed;left: 0px;">volver</a>
+            <a href="../home.php" class="btn btn-primary" style="position: fixed">volver</a>
             <center>
                 <div class="container">
                     <div class="wpb_wrapper">
@@ -116,6 +75,32 @@ include '../checksession.php';
                                 <textarea class="form-control" id="antAlergicos" type="text" style="width:100%;height: 100px;" placeholder="Alérgicos"></textarea>
                                 <textarea class="form-control" id="antQuirurgicos" type="text" style="width:100%;height: 100px;" placeholder="Quirúrgicos"></textarea>
                             </div>
+                            
+                            <!--                                    <div class="form-group">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td style="padding: 10px;">
+                                                                            <label>Altura</label>
+                                                                        </td>
+                                                                        <td style="padding: 10px;">
+                                                                            <input class="form-control" id="Altura" type="number" step="0.01" style="width:100%;height: 30px;" placeholder="1.5"/>
+                                                                        </td>
+                                                                        <td style="padding: 10px;">
+                                                                            <label>Peso</label>
+                                                                        </td>
+                                                                        <td style="padding: 10px;">
+                                                                            <input class="form-control" id="Peso" type="number" step="0.01" style="width:100%;height: 30px;" placeholder="78"/>
+                                                                        </td>
+                                                                        <td style="padding: 10px;">
+                                                                            <label></label>
+                                                                        </td>
+                                                                        <td style="padding: 10px;">
+                                                                            <input class="form-control" id="Peso" type="number" step="0.01" style="width:100%;height: 30px;" placeholder="78"/>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                </div>-->
+
                             <table>
                                 <tr>
                                     <td>
@@ -135,15 +120,14 @@ include '../checksession.php';
                 </div>
         </div>
         <script type="text/javascript"src="../../js/jquery.min.js"></script> 
-        <script type="text/javascript"src="../../js/bootstrap.min.js"></script> 
         <script type="text/javascript"src="../../js/RegistroLogin.js"></script> 
         <script type="text/javascript"src="../../js/bootstrap-datetimepicker.min.js"></script>
         <script type="text/javascript"src="../../js/scripts.js"></script>
         <script type="text/javascript">
-                                                $('#datetimepicker').datetimepicker({
-                                                    format: 'yyyy-MM-dd',
-                                                    pickTime: false
-                                                });
+                                                    $('#datetimepicker').datetimepicker({
+                                                        format: 'yyyy-MM-dd',
+                                                        pickTime: false
+                                                    });
         </script>
     </body>
 </html>

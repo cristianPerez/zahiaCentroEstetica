@@ -172,12 +172,12 @@ function InsertarProducto(imagen) {
                         "descripcion_antes":$('#desc_antes').val()
                         },
                     type: 'GET',
-                    url: "http://localhost/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=registrar_consulta",
+                    url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=registrar_consulta",
             //        url: "http://www.zahia.com.co/administrator/Controlador/Fachada.php?clase=Consultas&metodo=registrar_consulta",
                     success: function(data) {
                         if(data.respuesta === 'si'){
                             window.alert("Historia clinica almacenada con exito");
-                            window.location.href="http://localhost/zahiadmin/Vista/show-pre.php?img_antes=../uploads/antes/"+imagen+"&img_despues=../uploads/antes/dp.jpg&cedula="+$('#cedula').val()+"&nombre="+$('#nombrePaciente').val()+"&email="+$('#email').val()+"&tipo_consulta="+$('#tipo_consulta').val()+"&desc_c="+$('#dudas').val()+"&desc_antes="+$('#desc_antes').val()+"&desc_despues=&nacimiento="+$('#cumple').val()+"&id_historia="+data.respuesta2+"&fecha_historia_clinica=1&peso="+$('#peso').val()+"&altura="+$('#altura').val()+"&icm="+$('#icm').val()+"&cintura_alta="+$('#cintura_alta').val()+"&cintura_media="+$('#cintura_media').val()+"&cintura_baja="+$('#cintura_baja').val()+"&brazo_derecho="+$('#brazo_derecho').val()+"&brazo_izquierdo="+$('#brazo_izquierdo').val()+"&muslo_derecho="+$('#muslo_derecho').val()+"&muslo_izquierdo="+$('#muslo_izquierdo').val()+"&only_img_antes="+imagen+"&only_img_despues=dp.jpg";
+                            window.location.href="http://localhost/zahiaCentroEstetica/zahiadmin/Vista/show-pre.php?img_antes=../uploads/antes/"+imagen+"&img_despues=../uploads/antes/dp.jpg&cedula="+$('#cedula').val()+"&nombre="+$('#nombrePaciente').val()+"&email="+$('#email').val()+"&tipo_consulta="+$('#tipo_consulta').val()+"&desc_c="+$('#dudas').val()+"&desc_antes="+$('#desc_antes').val()+"&desc_despues=&nacimiento="+$('#cumple').val()+"&id_historia="+data.respuesta2+"&fecha_historia_clinica=1&peso="+$('#peso').val()+"&altura="+$('#altura').val()+"&icm="+$('#icm').val()+"&cintura_alta="+$('#cintura_alta').val()+"&cintura_media="+$('#cintura_media').val()+"&cintura_baja="+$('#cintura_baja').val()+"&brazo_derecho="+$('#brazo_derecho').val()+"&brazo_izquierdo="+$('#brazo_izquierdo').val()+"&muslo_derecho="+$('#muslo_derecho').val()+"&muslo_izquierdo="+$('#muslo_izquierdo').val()+"&only_img_antes="+imagen+"&only_img_despues=dp.jpg";
 
             //                window.location.href="http://www.zahia.com.co/administrator/Vista/home.php";
                         }
@@ -219,7 +219,7 @@ function updateProducto(imagen) {
         dataType: "json",
         data: {"id_history": $('#id_history').val(), "img_antes": imagen,"desc_antes":$('#descripcion_antes').val()},
         type: 'GET',
-        url: "http://localhost/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=actualizar_img_antes",
+        url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=actualizar_img_antes",
 //      url: "http://www.zahia.com.co/administrator/Controlador/Fachada.php?clase=Consultas&metodo=actualizar_img_antes",
         success: function(data) {
             if (data.respuesta === 'si')
@@ -253,7 +253,7 @@ function updateProductoDespues(imagen) {
         dataType: "json",
         data: {"id_history": $('#id_history').val(), "img_despues": imagen,"desc_despues":$('#descripcion_despues').val()},
         type: 'GET',
-        url: "http://localhost/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=actualizar_img_despues",
+        url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=actualizar_img_despues",
 //      url: "http://www.zahia.com.co/administrator/Controlador/Fachada.php?clase=Consultas&metodo=actualizar_img_antes",
         success: function(data) {
             if (data.respuesta === 'si')
