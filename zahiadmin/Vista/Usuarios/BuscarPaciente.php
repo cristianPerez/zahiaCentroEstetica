@@ -35,11 +35,11 @@ include '../checksession.php';
                             <li>
                                 <a href="../home.php">Home</a>
                             </li>
-                            <li class="active">
-                                <a href="#">Registro de paciente</a>
-                            </li>
                             <li>
-                                <a href="BuscarPaciente.php">Buscar paciente</a>
+                                <a href="registrarPaciente.php">Registro de paciente</a>
+                            </li>
+                            <li class="active">
+                                <a href="#">Buscar paciente</a>
                             </li>
                         </ul>
 
@@ -57,17 +57,28 @@ include '../checksession.php';
             <center>
                 <div class="container">
                     <div class="wpb_wrapper">
-                        <h2 class="box_header" style="color: gray;">Registro de paciente</h2>
+                        <h2 class="box_header" style="color: gray;">Busca un paciente por cedula</h2>
                     </div> 
-                    <form action="javascript:registrar_paciente();" style="padding-right: 10%; padding-left: 10%" method="POST">
+                    <div class="form-group">
+                        <form id="formBusqueda" action="javascript:buscar_paciente();" method="POST">      
+                            <center>
+                                        <input id="cedulaBusqueda" style="width: 50%; height: auto;"  type="number" class="form-control" placeholder="cedula paciente(*)" required=""/>
+                                        <br/>
+                                        <button value="BuscarPaciente" name="BuscarPaciente" id="BuscarPaciente" style="width: 20%;" class="btn btn-primary">Buscar</button>
+                                        <div id="cargandoBuscarBPaciente" style="display:none ;width: 35px;height: 35px;margin-top: 5px;">
+                                            <img src="../../img/cargando.gif" width="25" height="17" style="margin-top:3px" alt="gift para espera de envios de datos"/>
+                                        </div> 
+                            </center>
+                        </form>
+                    </div>
+                    <form id="formModificar"  action="javascript:modificar_paciente();" style="padding-right: 10%; padding-left: 10%;display: none" method="POST">
                         <div class="form-group">
-                            <input id="cedula" style="width: 100%; height: auto;"  type="number" class="form-control" placeholder="cedula pasiente(*)" required=""/>
-                            <input id="email" style="width: 100%; height: auto;"  type="email" class="form-control" placeholder="Email(*)"/>
-                            <input id="nombre" style="width: 100%; height: auto;"  type="text" class="form-control" placeholder="Nombre completo(*)" required=""/>
+                            <input id="emailBusqueda" style="width: 100%; height: auto;"  type="email" class="form-control" placeholder="Email(*)"/>
+                            <input id="nombreBusqueda" style="width: 100%; height: auto;"  type="text" class="form-control" placeholder="Nombre completo(*)" required=""/>
                         </div>
                         <div class="form-group">
                             <div style="width: 100%" id="datetimepicker" class="input-append date form-group">
-                                <input id="cumple" class="form-control" id="birthday" type="text" style="width:100%;height: 30px;" placeholder="Cumpleaños(*)" required=""/>
+                                <input id="cumpleBusqueda" class="form-control" id="birthday" type="text" style="width:100%;height: 30px;" placeholder="Cumpleaños(*)" required=""/>
                                 <span class="add-on" style="height: 30px;">
                                     <i data-date-icon="icon-calendar" style="margin-top: 40%"></i>
                                 </span>
@@ -82,45 +93,47 @@ include '../checksession.php';
                                             <label>Hombre</label>
                                         </td>
                                         <td style="padding: 10px;">
-                                            <input onclick="changeCheckbox('H')" class="form-control" id="Masculino" type="checkbox" style="width:20px;height: 20px;" value="0"/>
+                                            <input onclick="changeCheckboxBusqueda('H')" class="form-control" id="MasculinoBusqueda" type="checkbox" style="width:20px;height: 20px;" value="0"/>
                                         </td>
                                         <td style="padding: 10px;">
                                             <label>Mujer</label>
                                         </td>
                                         <td style="padding: 10px;"> 
-                                            <input onclick="changeCheckbox('M')" class="form-control" id="Femenino" type="checkbox" style="width:20px;height: 20px;" value="0"/>
+                                            <input onclick="changeCheckboxBusqueda('M')" class="form-control" id="FemeninoBusqueda" type="checkbox" style="width:20px;height: 20px;" value="0"/>
                                         </td>
                                         <td style="padding: 10px;"> 
-                                            <input  class="form-control" id="sexo" type="checkbox" style="width:20px;height: 20px; display: none" value="nada"/>
+                                            <input  class="form-control" id="sexoBusqueda" type="checkbox" style="width:20px;height: 20px; display: none" value="nada"/>
                                         </td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="form-group">
-                                <p><input style="max-width:100%; width: 100%; min-height: 30px;" id="ocupacion" type="text" class="form-control" placeholder="Ocupacion" required=""/></p>
-                                <p><input style="max-width:100%; width: 100%; min-height: 30px;" id="direccion" type="text" class="form-control" placeholder="Direccion" required=""/></p>
+                                <p><input style="max-width:100%; width: 100%; min-height: 30px;" id="ocupacionBusqueda" type="text" class="form-control" placeholder="Ocupacion" required=""/></p>
+                                <p><input style="max-width:100%; width: 100%; min-height: 30px;" id="direccionBusqueda" type="text" class="form-control" placeholder="Direccion" required=""/></p>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" id="telefono" type="text" style="width:100%;height: 30px;" placeholder="Numero telefonico 3015987864"/>
+                                <input class="form-control" id="telefonoBusqueda" type="text" style="width:100%;height: 30px;" placeholder="Numero telefonico 3015987864"/>
+                                <input class="form-control" id="cudulaBusqueda2" type="text" style="width:100%;height: 30px;display: none;"/>
                             </div>
                             <div class="form-group">
                                 <h3 style="color: gray;">Antecedentes</h3>
-                                <textarea class="form-control" id="antPatologicos" type="text" style="max-width:100%;max-height: 100px;min-height: 70px;" placeholder="Patológicos"></textarea>
-                                <textarea class="form-control" id="antAlergicos" type="text" style="max-width:100%;max-height: 100px;min-height: 70px;" placeholder="Alérgicos"></textarea>
-                                <textarea class="form-control" id="antQuirurgicos" type="text" style="max-width:100%;max-height: 100px;min-height: 70px;" placeholder="Quirúrgicos"></textarea>
+                                <textarea class="form-control" id="antPatologicosBusqueda" type="text" style="max-width:100%;max-height: 100px;min-height: 70px;" placeholder="Patológicos"></textarea>
+                                <textarea class="form-control" id="antAlergicosBusqueda" type="text" style="max-width:100%;max-height: 100px;min-height: 70px;" placeholder="Alérgicos"></textarea>
+                                <textarea class="form-control" id="antQuirurgicosBusqueda" type="text" style="max-width:100%;max-height: 100px;min-height: 70px;" placeholder="Quirúrgicos"></textarea>
                             </div>
                             <table>
                                 <tr>
                                     <td>
-                                        <button id="btnEnviarContacto" type="submit" class="btn btn-info">Registrar</button>
+                                        <button id="btnEnviarContacto" type="submit" class="btn btn-info">Modificar</button>
                                     </td>
                                     <td>
-                                        <div id="cargandoAgregarPaciente" style="display:none ;width: 35px;height: 35px;margin-top: 5px;">
+                                        <div id="cargandoModificarPaciente" style="display:none ;width: 35px;height: 35px;margin-top: 5px;">
                                             <img src="../../img/cargando.gif" width="25" height="17" style="margin-top:3px" alt="gift para espera de envios de datos"/></div> 
                                     </td>
                                     <td style="width: 200px; height: auto; display: none">
                                         <label id="textoResultante2"></label>
                                     </td>
+                                    
                                 </tr>
                             </table> 
                         </div>
@@ -140,4 +153,6 @@ include '../checksession.php';
         </script>
     </body>
 </html>
+
+
 

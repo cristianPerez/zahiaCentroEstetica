@@ -36,9 +36,9 @@ include 'checksession.php';
 
                     <div class="span4" style="min-width:49.5%;width: auto;min-height: 200px;height: auto;background: #33ccff;margin-left:0px;margin-right: 0.5%;margin-bottom: 0.5%;" >
 
-                        <h3 style="color: white;font-family: sans-serif;font-size: 35px; margin-top: 3%">Registro de paciente</h3>
+                        <h3 style="color: white;font-family: sans-serif;font-size: 35px; margin-top: 6%">Registro de paciente</h3>
 
-                        <p style="min-width: auto;max-width: 250px;font-size: 16px; color: wheat">Registrar un paciente o buscarlo y editarlo</p>
+                        <p style="min-width: auto;max-width: 250px;font-size: 20px; color: wheat">Registra, busca y edita un paciente facilmente</p>
 
                     </div>
 
@@ -48,9 +48,9 @@ include 'checksession.php';
 
                     <div class="span4" style="min-width:49.5%;width: auto;min-height: 200px;height: auto;background: #0099ff;margin-left:0.5%;margin-bottom: 0.5%;" >
 
-                        <h3 style="color: white;font-family: sans-serif;font-size: 35px; margin-top: 3%">Consulta</h3>
+                        <h3 style="color: white;font-family: sans-serif;font-size: 35px; margin-top: 6%">Consulta</h3>
 
-                        <p style="min-width: auto;max-width: 250px;font-size: 16px;color: wheat">Se realizan dos tipos de consulta faciales y corporales</p>
+                        <p style="min-width: auto;max-width: 250px;font-size: 20px;color: wheat">Se realizan dos tipos de consulta faciales y corporales</p>
 
                     </div>
 
@@ -60,9 +60,9 @@ include 'checksession.php';
 
                     <div class="span4" style="min-width:49.5%;width: auto;min-height: 200px;height: auto;background: #5CFCFF;margin-left:0px;margin-right: 0.5%;margin-top:0.5%" >
 
-                        <h3 style="color: white;font-family: sans-serif;font-size: 35px; margin-top: 3%">Actualizar informacion</h3>
+                        <h3 style="color: white;font-family: sans-serif;font-size: 35px; margin-top: 6%">Actualizar informacion</h3>
 
-                        <p style="min-width: auto;max-width: 250px;font-size: 16px;color: wheat">Busca paciente por cedula y actualiza sus datos o genera una nueva consulta</p>
+                        <p style="min-width: auto;max-width: 250px;font-size: 20px;color: wheat">Busca paciente por cedula y actualiza sus datos o genera una nueva consulta</p>
 
                     </div>
 
@@ -72,9 +72,9 @@ include 'checksession.php';
 
                     <div class="span4" style="min-width:49.5%;width: auto;min-height: 200px;height: auto;background: #33ccff;margin-left:0px;margin-left: 0.5%;margin-top:0.5%" >
 
-                        <h3 style="color: white;font-family: sans-serif;font-size: 35px; margin-top: 3%">Antes y despues por paciente</h3>
+                        <h3 style="color: white;font-family: sans-serif;font-size: 35px; margin-top: 6%">Antes y despues por paciente</h3>
 
-                        <p style="min-width: auto;max-width: 250px;font-size: 16px;color: wheat">Busca paciente por cedula y actualiza sus datos o genera una nueva consulta</p>
+                        <p style="min-width: auto;max-width: 250px;font-size: 20px;color: wheat">Busca paciente por cedula y actualiza sus datos o genera una nueva consulta</p>
 
                     </div>
 

@@ -50,6 +50,20 @@ function login_usuario(){
             echo json_encode($tabla);
         }
     }
+ function modificar_paciente() {
+        $sql = "UPDATE `paciente` SET `email`='".$_REQUEST["email"]."',`nombre_completo`='".$_REQUEST["nombre"]."',`nacimiento`='".$_REQUEST["cumple"]."',`sexo`='".$_REQUEST["sexo"]."',`ocupacion`='".$_REQUEST["ocupacion"]."',`direccion`='".$_REQUEST["direccion"]."',`telefono`='".$_REQUEST["telefono"]."',`antecedentes_patologicos`='".$_REQUEST["patologicos"]."',`antecedentes_alergicos`='".$_REQUEST["alergicos"]."',`antecedentes_quirurgicos`='".$_REQUEST["quirurgicos"]."' WHERE `cedula`=".$_REQUEST["cedulab"].";";
+        $conn = new Conexion();
+        $conn->conectar();
+        try {
+            $res = $conn->consulta($sql);
+            $conn->desconectar();
+            $tabla["respuesta"] = "si";
+            echo json_encode($tabla);
+        } catch (Exception $e) {
+            $tabla["respuesta"]="no";
+            echo json_encode($tabla);
+        }
+    }
     function cerrar_sesion(){
      try {
         session_destroy();
@@ -57,6 +71,28 @@ function login_usuario(){
      } catch (Exception $exc) {
         echo json_encode(array("mensaje" => "Error al actualizar el registro. Verifique los datos"));
      }
+    }
+    
+    function buscar_paciente() {
+        $sql = "SELECT * FROM `paciente` WHERE `cedula`=".$_REQUEST["cedula"].";";
+        $conn = new Conexion();
+        $conn->conectar();
+        try {
+            $res = $conn->consulta($sql);
+            $conn->desconectar();
+
+           $row = mysql_fetch_row($res);
+           
+            if ($row != null) {
+
+                echo json_encode($row);
+            } else {
+                echo json_encode(null);
+            }
+        } catch (Exception $e) {
+            //echo json_encode("fallo");
+            echo json_encode(array("mensaje" => "Error al actualizar el registro. Verifique los datos"));
+        }
     }
 }
 ?>
