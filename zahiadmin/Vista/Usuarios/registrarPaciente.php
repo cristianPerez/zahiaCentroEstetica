@@ -7,17 +7,53 @@ include '../checksession.php';
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="UTF-8">
         <title>zahia</title>
-        <link rel="stylesheet"  href="../../css/bootstrap.min.css" type="text/css" media="all">
+        <link rel="stylesheet"  href="../../css/bootstrap.min_1.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap.css" type="text/css" media="all">
-        <link rel="stylesheet"  href="../../css/bootstrap-combined.min.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/style.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/signin.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap-datetimepicker.min.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap-responsive.css" type="text/css" media="all">
     </head>
     <body>
-        <div class="row-fluid">
-            <a href="../home.php" class="btn btn-primary" style="position: fixed">volver</a>
+        <div class="row-fluid">            
+            <div class="container">
+	
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
+                                             <span class="sr-only">Toggle navigation</span>
+                                             <span class="icon-bar"></span>
+                                             <span class="icon-bar"></span>
+                                             <span class="icon-bar"></span>
+                                         </button> 
+                                    <a href="../home.php" class="navbar-brand"><img src="../../img/zahialogo.png" style="width: 40px;height: 20px" class="img-responsive"/></a>
+
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="../home.php">Home</a>
+						</li>
+						<li class="active">
+							<a href="#">Agregar paciente</a>
+						</li>
+						<li>
+							<a href="#">Buscar paciente</a>
+						</li>
+					</ul>
+					
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">Cerrar sesión</a>
+						</li>
+					</ul>
+				</div>
+				
+			</nav>
+	
+</div>
+            
             <center>
                 <div class="container">
                     <div class="wpb_wrapper">
@@ -122,6 +158,7 @@ include '../checksession.php';
         <script type="text/javascript"src="../../js/jquery.min.js"></script> 
         <script type="text/javascript"src="../../js/RegistroLogin.js"></script> 
         <script type="text/javascript"src="../../js/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript"src="../../js/bootstrap.min.js"></script>
         <script type="text/javascript"src="../../js/scripts.js"></script>
         <script type="text/javascript">
                                                     $('#datetimepicker').datetimepicker({
