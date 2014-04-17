@@ -3,8 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Vista/home.php</file>
-            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Vista/Usuarios/registrarPaciente.php</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/js/autocomplete.js</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/js/RegistroLogin.js</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/js/scripts.js</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Vista/Consulta/consulta.php</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/js/Consultas.js</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Modelo/paciente.php</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Modelo/Registro_login.php</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/js/servicios.js</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Vista/Consulta/show-pre.php</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Modelo/Consultas.php</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Modelo/buscar_paciente.php</file>
         </group>
     </open-files>
 </project-private>

@@ -12,9 +12,7 @@ class Consultas {
     
     function registrar_consulta() {
         $sql = "INSERT INTO `historia_clinica`(`peso`, `altura`, `masa_corporal`,`descripcion_consulta`, `Usuario_atendio`, `tipo_consulta_id`, `paciente_cedula`, `cintura_alta`, `cintura_media`, `cintura_baja`, `brazo_derecho`, `brazo_izquierdo`, `muslo_derecho`, `muslo_izquierdo`, `factura`, `costo_total`)"
-                . "VALUES ('" . $_REQUEST["peso"]. "','" . $_REQUEST["altura"]. "','" . $_REQUEST["icm"]. "','". $_REQUEST["dudas"]. "',".$_SESSION["id"].",". $_REQUEST["tipo_consulta"].",". $_REQUEST["cedula"].",'". $_REQUEST["cintura_alta"]."','". $_REQUEST["cintura_media"]."','". $_REQUEST["cintura_baja"]."','". $_REQUEST["brazo_derecho"]."','". $_REQUEST["brazo_izquierdo"]."','". $_REQUEST["muslo_derecho"]."','". $_REQUEST["muslo_izquierdo"]."','".$_REQUEST["factura"]."',". $_REQUEST["total"].")";        
-        $sql1= "INSERT INTO `historia_clinica`(`peso`, `altura`, `masa_corporal`,`descripcion_consulta`, `Usuario_atendio`, `tipo_consulta_id`, `paciente_cedula`, `cintura_alta`, `cintura_media`, `cintura_baja`, `brazo_derecho`, `brazo_izquierdo`, `muslo_derecho`, `muslo_izquierdo`, `factura`, `costo_total`)"
-                . "VALUES (0,0,0,'". $_REQUEST["dudas"]. "',".$_SESSION["id"].",". $_REQUEST["tipo_consulta"].",". $_REQUEST["cedula"].",0,0,0,0,0,0,0".",'". $_REQUEST["factura"]."',". $_REQUEST["total"].")";
+                . "VALUES ('" . $_REQUEST["peso"]. "','" . $_REQUEST["altura"]. "','" . $_REQUEST["icm"]. "','". $_REQUEST["dudas"]. "',".$_SESSION["id"].",". $_REQUEST["tipo_consulta"].",". $_REQUEST["cedula"].",'". $_REQUEST["cintura_alta"]."','". $_REQUEST["cintura_media"]."','". $_REQUEST["cintura_baja"]."','". $_REQUEST["brazo_derecho"]."','". $_REQUEST["brazo_izquierdo"]."','". $_REQUEST["muslo_derecho"]."','". $_REQUEST["muslo_izquierdo"]."','".$_REQUEST["factura"]."',". $_REQUEST["total"].")";
         $sql3 = "SELECT MAX( id )FROM  `historia_clinica`;";
         $conn = new Conexion();
         $conn->conectar();
