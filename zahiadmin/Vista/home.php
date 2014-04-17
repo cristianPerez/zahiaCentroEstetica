@@ -44,7 +44,7 @@ include 'checksession.php';
 
     </a>
 
-    <a href="consulta.php" class="leermas">
+    <a href="Consulta/consulta.php" class="leermas">
 
                     <div class="span4" style="min-width:49.5%;width: auto;min-height: 200px;height: auto;background: #0099ff;margin-left:0.5%;margin-bottom: 0.5%;" >
 

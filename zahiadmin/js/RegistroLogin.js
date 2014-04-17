@@ -72,6 +72,7 @@ function registrar_paciente(){
         
     }
     else{
+        $('#cargandoAgregarPaciente').hide();
         window.alert("Hay campos incompletos revise el sexo del paciente !!!");
     }
     

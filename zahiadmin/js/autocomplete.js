@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $("#nombrePaciente").autocomplete({
-        source: "../Modelo/buscar_paciente.php",
+        source: "../../Modelo/buscar_paciente.php",
         minLength: 1
     });
 
@@ -8,7 +8,7 @@ $(document).ready(function() {
         $("#cargando").show();
         $('#tipo_consulta').attr('disabled', true);
         $.ajax({
-            url: '../Modelo/paciente.php',
+            url: '../../Modelo/paciente.php',
             type: 'POST',
             dataType: 'json',
             data: {pacienteNombre: $('#nombrePaciente').val()}
