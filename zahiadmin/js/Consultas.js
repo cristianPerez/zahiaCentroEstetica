@@ -1,8 +1,7 @@
 var numTratamientos = 1;
 var sumaTotal = 0;
 
-
-$(document).ready(function() {
+$(document).ready(function(){
     $('#tipo_consulta').change(function()
     {
         if ($('#tipo_consulta').val() === "1") {
@@ -24,13 +23,19 @@ function IMC() {
 
 
 
+function publicar(des1)
+{
+    $('#descripcion_examen_fisico').val(des1);
+}
+
 function Totalmas()
 {
     if ($('#producto1').val() !== "" && $('#precio1').val() !== "") {
         if (!isNaN($('#precio1').val())) {
             sumaTotal = parseInt(sumaTotal) + parseInt($('#precio1').val());
-            $('#total').val("$" + sumaTotal);
-            $('#factura').append(numTratamientos + ") " + $('#producto1').val() + " ------ " + $('#precio1').val() + " suma \n");
+
+            $('#total').val("$" + parcear(sumaTotal));
+            $('#factura').append(numTratamientos + ") " + $('#producto1').val() + " ------  $" + parcear($('#precio1').val()) + " suma \n");
             $('#producto1').val("");
             $('#precio1').val("");
             numTratamientos = parseInt(numTratamientos) + 1;
@@ -70,7 +75,7 @@ function changeCheckbox(tipo) {
     }
 }
 
-function InsertarConsulta(imagen) {
+function InsertarConsulta() {
 
     if ($('#cedula').val() !== "" && $('#cumple').val() !== "" && $('#nombrePaciente').val() !== "") {
         if ($('#factura').val() !== "" && $('#total').val() !== "") {
@@ -92,18 +97,17 @@ function InsertarConsulta(imagen) {
                             "muslo_derecho": this.validate($('#muslo_derecho').val()),
                             "muslo_izquierdo": this.validate($('#muslo_izquierdo').val()),
                             "tipo_consulta": $('#tipo_consulta').val(),
-                            "dudas": $('#dudas').val(),
+                            "dudas": $('#dudasConsulta').val(),
                             "factura": $('#factura').val(),
                             "total": $('#total').val().substring(1)
                         },
                 type: 'GET',
                 url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=registrar_consulta",
-                //        url: "http://www.zahia.com.co/administrator/Controlador/Fachada.php?clase=Consultas&metodo=registrar_consulta",
+                //        url: "http://www.zahia.com.co/administrator/Controlador/Fachada.php?clase=Consultas&metodo=registrar_consulta",d
                 success: function(data) {
                     if (data.respuesta === 'si') {
                         window.alert("Historia clinica almacenada con exito");
-                        window.location.href = "http://localhost/zahiaCentroEstetica/zahiadmin/Vista/Consulta/show-pre.php?img_antes=../uploads/antes/" + imagen + "&img_despues=../uploads/antes/dp.jpg&cedula=" + $('#cedula').val() + "&nombre=" + $('#nombrePaciente').val() + "&email=" + $('#email').val() + "&tipo_consulta=" + $('#tipo_consulta').val() + "&desc_c=" + $('#dudas').val() + "&desc_antes=" + $('#desc_antes').val() + "&desc_despues=&nacimiento=" + $('#cumple').val() + "&id_historia=" + data.respuesta2 + "&fecha_historia_clinica=1&peso=" + $('#peso').val() + "&altura=" + $('#altura').val() + "&icm=" + $('#icm').val() + "&cintura_alta=" + $('#cintura_alta').val() + "&cintura_media=" + $('#cintura_media').val() + "&cintura_baja=" + $('#cintura_baja').val() + "&brazo_derecho=" + $('#brazo_derecho').val() + "&brazo_izquierdo=" + $('#brazo_izquierdo').val() + "&muslo_derecho=" + $('#muslo_derecho').val() + "&muslo_izquierdo=" + $('#muslo_izquierdo').val() + "&only_img_antes=" + imagen + "&only_img_despues=dp.jpg";
-
+                        window.location.href = "http://localhost/zahiaCentroEstetica/zahiadmin/Vista/Consulta/show-pre.php?cedula=" + $('#cedula').val() + "&nombre=" + $('#nombrePaciente').val() + "&email=" + $('#email').val() + "&tipo_consulta=" + $('#tipo_consulta').val() + "&desc_c=" + $('#dudasConsulta').val() + "&nacimiento=" + $('#cumple').val() + "&id_historia=" + data.respuesta2 + "&fecha_historia_clinica=1&peso=" + $('#peso').val() + "&altura=" + $('#altura').val() + "&icm=" + $('#icm').val() + "&cintura_alta=" + $('#cintura_alta').val() + "&cintura_media=" + $('#cintura_media').val() + "&cintura_baja=" + $('#cintura_baja').val() + "&brazo_derecho=" + $('#brazo_derecho').val() + "&brazo_izquierdo=" + $('#brazo_izquierdo').val() + "&muslo_derecho=" + $('#muslo_derecho').val() + "&muslo_izquierdo=" + $('#muslo_izquierdo').val()+ "&resumen_factura=" + $('#factura').val()+ "&total_factura=" + $('#total').val();
                         //                window.location.href="http://www.zahia.com.co/administrator/Vista/home.php";
                     }
                     else if (data.respuesta === 'no')
@@ -133,14 +137,38 @@ function InsertarConsulta(imagen) {
 
 }
 
-function validate(key){
-    
-    if(key!==""){
+function validate(key) {
+
+    if (key !== "") {
         return key;
-        
+
     }
-    else{
+    else {
         return "";
     }
-    
+
+}
+
+function parcear(numero) {
+
+    var number = new String(numero);
+
+    var result = '';
+
+    while (number.length > 3)
+
+    {
+        result = '.' + number.substr(number.length - 3) + result;
+        number = number.substring(0, number.length - 3);
+    }
+
+    result = number + result;
+
+    return result;
+
+}
+function clear(){
+    $('#total').val("");
+    $('#factura').text("");
+    numTratamientos = 1;
 }

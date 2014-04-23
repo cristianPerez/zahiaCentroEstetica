@@ -76,7 +76,6 @@ include '../checksession.php';
                                 <input  class="form-group" id="brazo_derecho"  step="0.01" type="number" class="form-control" placeholder="(40)" />
                                 <label for="brazo_izquierdo">Brazo izquierdo</label>
                                 <input  class="form-group" id="brazo_izquierdo"  step="0.01" type="number" class="form-control" placeholder="(40)" />
-
                                 <label for="muslo_derecho">Muslo derecho</label>
                                 <input  class="form-group" id="muslo_derecho"  step="0.01" type="number" class="form-control" placeholder="(60)" />
                                 <label for="muslo_izquierdo">Muslo izquierdo</label>
@@ -87,7 +86,7 @@ include '../checksession.php';
 
                         </div>
                 <div class="container">
-                    <p><textarea style="width:100%; max-width: 100%; min-height: 114px;max-height: 200px" id="dudas" type="text" class="form-control" placeholder="Descripcion Examen Físico" required=""></textarea></p>
+                    <p><textarea style="width:100%; max-width: 100%; min-height: 114px;max-height: 200px" id="dudasConsulta" type="text" class="form-control" placeholder="Descripcion Examen Físico" required=""></textarea></p>
                 </div>
 
                 <h3 style="color: gray;">Facturación</h3>
@@ -102,7 +101,7 @@ include '../checksession.php';
                             <div class="span12" style="margin-left: -0.07%">
 
                                 <label>Precio</label>
-                                <input class="form-control" value="" id="precio1" type="number" />
+                                <input class="form-control" style="font-size: 30px;height: 40px;" value="" id="precio1" type="number" />
                             </div>
                             <div class="span12" style="margin-left: -0.07%">
                                 <label>Operacion</label>
@@ -113,8 +112,17 @@ include '../checksession.php';
                         <div class="span6">
                             <p><textarea disabled="true" style="width:100%; max-width: 100%; min-height: 114px;max-height: 200px" id="factura" type="text" class="form-control" placeholder="factura" required=""></textarea></p>
                             <div class="span12">
-                                <label for="total">Total:</label>
-                                <input type="text" class="form-control" id="total" value="" disabled="true"/>
+                                
+                                <div class="span3">
+                                    <br/>
+                                    <br/>
+                                    <a href="javaScript:clear()" class="btn btn-primary">Borrar</a>
+                                </div>
+                                <div class="span9">
+                                    <label for="total">Total:</label>
+                                    <input type="text" style="font-size: 30px;height: 40px;text-align: center;" class="form-control" id="total" value="" disabled="true"/>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,3 @@
-<?php
-include '../checksession.php';
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,11 +11,11 @@ include '../checksession.php';
         <link rel="stylesheet"  href="../../css/signin.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap-responsive.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/jqueryui.css"  type="text/css"/>
-        <script type="text/javascript"src="../../js/scripts.js"></script>
+        <script type="text/javascript"src="../../js/Consultas.js"></script>
     </head>
-    <body onload="javaScript:publicar('<?php echo $_GET['desc_c'] ?>', '<?php echo $_GET['desc_antes'] ?>', '<?php echo $_GET['desc_despues'] ?>');">
+    <body>
         <div class="row-fluid">
-            <a href="../home.php" class="btn btn-primary" style="position: fixed">volver</a>
+<!--            <a href="../home.php" class="btn btn-primary" style="position: fixed">volver</a>-->
             <div class="container">
                 <center>
                     <h1>Informacion Historia Clinica</h1>
@@ -54,7 +51,7 @@ include '../checksession.php';
                         }
                         ?>" style="width:100%;" placeholder="tipo de consulta">
                         <label for="descripcion_examen_fisico">Descripcion del examen Fisico:</label>
-                        <textarea id="descripcion_examen_fisico" disabled="true" class="form-control" style="width:100%; max-width: 100%; min-height: 150px;max-height: 150px" placeholder="Descripcion"></textarea>
+                        <textarea  id="descripcioqn_examen_fisico" disabled="true"  type="text" class="form-control" style="width:100%; max-width: 100%; min-height: 153px;max-height: 152px"><?php echo $_GET["desc_c"]; ?></textarea>
                     </div>
                 </div>
                 <?php
@@ -74,31 +71,18 @@ include '../checksession.php';
 
                                 <label for="imcs">IMC</label>
                                 <input  id="imcs" disabled="true" value="<?php echo $_GET["icm"]; ?>" type="text" disabled="true" class="form-control" placeholder="IMC"/>
-
-                                <label for="reco">Recomendacion</label>
-                                <input  id="reco" value="<?php
-                                if ($_GET["icm"] >= 25.5) {
-                                    echo 'Tiene sobrepeso';
-                                } else if ($_GET["icm"] <= 20.5) {
-                                    echo 'Engordar';
-                                } else {
-                                    echo 'Equivalente';
-                                }
-                                ?>" type="text" disabled="true" class="form-control" placeholder="recomendacion"/>
                             </div>
                             <div class="span4">
                                 <h3 style="color: gray;">Medidas en la cintura</h3>
                                 <label for="cintura_alta">Alta</label>
-                                <input  class="form-group" id="cintura_alta" disabled="true" value="<?php echo $_GET["cintura_alta"]; ?>" step="0.01" type="number" class="form-control" placeholder="(90)" />
+                                <input  class="form-group" id="cintura_alta" disabled="true"  value="<?php echo $_GET["cintura_alta"]; ?>" step="0.01" type="number" class="form-control" placeholder="(90)" />
 
                                 <label for="cintura_media">Media</label>
-                                <input  class="form-group" id="cintura_media" disabled="true" value="<?php echo $_GET["cintura_media"]; ?>"  step="0.01" type="number" class="form-control" placeholder="(60)" />
+                                <input  class="form-group" id="cintura_media" disabled="true"  value="<?php echo $_GET["cintura_media"]; ?>"  step="0.01" type="number" class="form-control" placeholder="(60)" />
 
                                 <label for="cintura_baja">Baja</label>
-                                <input  class="form-group" id="cintura_baja" disabled="true" value="<?php echo $_GET["cintura_baja"]; ?>" step="0.01" type="number" class="form-control" placeholder="(90)" />
+                                <input  class="form-group" id="cintura_baja" disabled="true"  value="<?php echo $_GET["cintura_baja"]; ?>" step="0.01" type="number" class="form-control" placeholder="(90)" />
 
-                                <label for="cintura_baja">Recomendacion</label>
-                                <input  class="form-group" id="cintura_baja" disabled="true" value="laserlipolisis" step="0.01" type="number" class="form-control" placeholder="(90)" />
                             </div>
                             <div class="span4">
                                 <h3 style="color: gray;">Medidas en las Extremidades</h3>
@@ -113,10 +97,34 @@ include '../checksession.php';
                             </div>
 
                         </div>
-                    </center>     
+                    </center>   
 <?php }
 ?>                
                 <div class="span12">
+                    <center>
+                    <div class="span6">
+                        
+                        <h3>Resumen de factura</h3>
+                         <textarea disabled="true" style="width:100%; max-width: 100%; min-height: 114px;max-height: 114px" id="factura" type="text" class="form-control" placeholder="factura" required=""><?php echo $_GET["resumen_factura"]; ?></textarea>
+                    </div>
+                    <div class="span6">
+                        <h3>Total</h3>
+                        <input type="text" style="font-size: 30px;height: 40px; width: 100%; text-align: center;" class="form-control" id="total" value="<?php echo $_GET["total_factura"]; ?>" disabled="true"/>
+                        <br/>
+                        <br/>
+                        <div class="span4">
+                            <a href="#" class="btn btn-large btn-primary" style="width: 111px;" >Descargar</a>
+                        </div>
+                        <div class="span4">
+                            <a target="in_blank" href="img-antes.php?id_historia=<?php echo $_GET["id_historia"];?>" class="btn btn-large btn-info" style="width: 111px;"  >Antes</a>
+                        </div>
+                        <div class="span3">
+                            <a href="#" class="btn btn-large btn-inverse" style="width: 111px;" >Despues</a>
+                        </div>
+                    </div>
+                      </center> 
+                </div>
+<!--                <div class="span12">
                     <div class="span6">
                         <center>
                             <form id="formModificarAntes" action="ajaxuploadAntes.php"  method="POST" enctype="multipart/form-data">    
@@ -156,6 +164,7 @@ include '../checksession.php';
                         </center>
                          
                     </div>
+                </div>-->
                 </div>
             </div>
             <script type="text/javascript"src="../js/jquery.min.js"></script> 

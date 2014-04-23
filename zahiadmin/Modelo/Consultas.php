@@ -34,9 +34,9 @@ class Consultas {
             echo json_encode($tabla);
         }
     }
-    function actualizar_img_antes() {
+    function registrar_Imagen_antes() {
         
-        $sql = "UPDATE `historia_clinica` SET `url_img_antes`='".$_REQUEST["img_antes"]."', `descripcion_img_antes`='".$_REQUEST["desc_antes"]."'  where `id`=".$_REQUEST["id_history"];
+        $sql = "INSERT INTO `imagenes`(`tipo`,`descripcion`, `url`, `historia_clinica_id`) VALUES (1,'".$_REQUEST["descripcion_antes"]."','".$_REQUEST["imagen_antes"]."',".$_REQUEST["id_history"].")";
         $conn = new Conexion();
         $conn->conectar();
         try {
@@ -49,8 +49,9 @@ class Consultas {
             echo json_encode($tabla);
         }
     }
-    function actualizar_img_despues() {
-        $sql = "UPDATE `historia_clinica` SET `url_img_despues`='".$_REQUEST["img_despues"]."', `descripcion_img_despues`='".$_REQUEST["desc_despues"]."'  where `id`=".$_REQUEST["id_history"];
+    function registrar_Imagen_despues() {
+        
+        $sql = "INSERT INTO `imagenes`(`tipo`,`descripcion`, `url`, `historia_clinica_id`) VALUES (2,'".$_REQUEST["descripcion_antes"]."','".$_REQUEST["imagen_antes"]."',".$_REQUEST["id_history"].")";
         $conn = new Conexion();
         $conn->conectar();
         try {
@@ -62,6 +63,40 @@ class Consultas {
             $tabla["respuesta"]="no";
             echo json_encode($tabla);
         }
+    }
+    function lista_imagenes() {
+        $sql = "SELECT * FROM `imagenes` WHERE `historia_clinica_id`=".$_REQUEST["id_history"]." and `tipo`=".$_REQUEST["tipe"]."";
+        $conn = new Conexion();
+        $conn->conectar();
+        try {
+            $res = $conn->consulta($sql);
+            $conn->desconectar();
+            $i = 0;
+            $arr = null;
+            while ($row = mysql_fetch_array($res)) {
+                $arr[$i] = array("id" => $row['id'],"tipo" => $row['tipo'], "descripcion" => utf8_encode($row['descripcion']), "url" => $row['url']);
+                $i++;
+            }
+            if ($arr != null) {
+                echo json_encode($arr);
+            } else {
+                echo json_encode(array("respuesta" => "no"));
+            }
+        } catch (Exception $e) {
+            echo json_encode(array("respuesta" => "no"));
+        }
+//        $sql = "UPDATE `historia_clinica` SET `url_img_despues`='".$_REQUEST["img_despues"]."', `descripcion_img_despues`='".$_REQUEST["desc_despues"]."'  where `id`=".$_REQUEST["id_history"];
+//        $conn = new Conexion();
+//        $conn->conectar();
+//        try {
+//            $res2 = $conn->consulta($sql);
+//            $conn->desconectar();
+//            $tabla["respuesta"] = "si";
+//            echo json_encode($tabla);
+//        } catch (Exception $e) {
+//            $tabla["respuesta"]="no";
+//            echo json_encode($tabla);
+//        }
     }
     
 }
