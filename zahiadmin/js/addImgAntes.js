@@ -1,11 +1,8 @@
 $(document).ready(function() {
     var b = $('#btnGuardarImgAntes'); // upload button
-    b.click(AgregarProducto());
-    resetImgAntes();
-    resetImgDespues();
+    b.click(AgregarImgAntes());
 });
-
-function AgregarProducto() {
+function AgregarImgAntes() {
 
     var f = $('#formAddImgAntes');
     var l = $('#cargando3'); // loder.gif image
@@ -47,88 +44,107 @@ function AgregarProducto() {
 
 function InsertarFotoAntes(imagen) {
     if ($('#descripcion_img_antes').val() !== "") {
-            var l = $('#cargando3');
-            var id_history = $('#id_history').val();
-            var imagen_antes = imagen;
-            var descripcion_antes = $('#descripcion_img_antes').val();
-            $.ajax({
-                dataType: "json",
-                data:
-                        {
-                            "id_history": id_history,
-                            "imagen_antes": imagen_antes,
-                            "descripcion_antes": descripcion_antes
-                        },
-                type: 'GET',
-                url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=registrar_Imagen_antes",
-                success: function(data) {
-                    if (data.respuesta === 'si') {
-                        window.alert("Imagen almacenada con exito");
-                        var texto = "<div class='span4'><img src='../../uploads/antes/" + imagen + "' class='img-responsive'/><p>" + descripcion_antes + "</p></div>";
-                        $('#muestras_antes').prepend(texto);
-                        $('#descripcion_img_antes').val("");
-                        $('#imageProduct').val("");
-                        $('#carga_fotos').hide('slow');
-                        $('#tienes_fotos').show('slow');
-                        l.hide('slow');
-                        $('#btnGuardarImgAntes').attr('disabled', 'false');
-
-                    }
-                    else if (data.respuesta === 'no')
+        var l = $('#cargando3');
+        var id_history = $('#id_history').val();
+        var imagen_antes = imagen;
+        var descripcion_antes = $('#descripcion_img_antes').val();
+        var texto = "";
+        $.ajax({
+            dataType: "json",
+            data:
                     {
-                        window.alert("Lo sentimos la historia clinica ya habia sido guardada antes");
-                        $('#cargando2').hide('slow');
-                    }
-                },
-                error: function(e, es, error) {
-                    window.alert("ocurrio un error intentalo mas tarde");
+                        "tipo": 1,
+                        "id_history": id_history,
+                        "imagen_antes": imagen_antes,
+                        "descripcion_antes": descripcion_antes
+                    },
+            type: 'GET',
+            url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=registrar_Imagen",
+            success: function(data) {
+                if (data.respuesta === 'si') {
+                    $("#descripcion_img_antes").val("");
+                    $("#imageProduct").val("");
+                    window.location.reload();
                 }
+                else if (data.respuesta === 'no')
+                {
+                    window.alert("Lo sentimos la historia clinica ya habia sido guardada antes");
+                    $('#cargando2').hide('slow');
+                }
+            },
+            error: function(e, es, error) {
+                window.alert("ocurrio un error intentalo mas tarde");
             }
-            );
+        }
+        );
     }
     else {
         window.alert("Agregue una descripcion");
     }
 }
 
-function mostrarImagenes(idHistory,tipe){
- 
-     $('#cargando2').show();
+function mostrarImagenes(idHistory, tipe) {
+
+    $('#cargando2').show();
+    var texto = "";
     $.ajax({
         dataType: "json",
-        data:{"id_history": idHistory,
-              "tipe": tipe
-             },
-        type: 'GET',
-                url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=lista_imagenes",
-        success: function(data){
-            if(data.respuesta!== 'no'){
-                var texto;
-               for(var i=0;i<data.length;i++){
-                    texto += "<div class='span4'><img src='../../uploads/antes/" + data[i].url + "' class='img-responsive'/><p>" +data[i].descripcion+ "</p></div>";
-               } 
-               $('#muestras_antes').html(texto);
-               $('#cargando2').hide('slow');
-            }
-            else{
-                
-            }
-            
-            
-//            if(data.length==null){
-//                
-//                window.alert("erespa")
-//                
-//            }
-//            else{
-//                window.alert("no hay nada")
-//            }
-            
+        data: {"id_history": idHistory,
+            "tipe": tipe
         },
-        error: function(e,es,error) {
+        type: 'GET',
+        url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=lista_imagenes",
+        success: function(data) {
+            if (data.respuesta !== 'no') {
+                for (var i = 0; i < data.length; i++) {
+                    var x = '"' + data[i].url + '"';
+                    texto += "<div class='span4' style='margin-left:0px;margin-right: 1.7%;'><p style='position:absolute;'><a href='javascript:eliminarImagen(" + data[i].id + "," + x + "," + data[i].tipo + ")' class='btn btn-inverse' style='text-align:rigth;'>X</a></p><img src='../../uploads/antes/" + data[i].url + "' class='img-responsive'/><p>" + data[i].descripcion + "</p></div>";
+                }
+                $('#muestras_antes').html(texto);
+                $('#carga_fotos').hide('slow');
+                $('#tienes_fotos').show('slow');
+                $('#cargando2').hide('slow');
+            }
+            else {
+                $('#carga_fotos').show('slow');
+                $('#tienes_fotos').hide('slow');
+                $('#cargando2').hide('slow');
+            }
+        },
+        error: function(e, es, error) {
             window.alert("ocurrio un error vuelve a intentarlo");
         }
     }
-); 
-    
+    );
+
+}
+
+function eliminarImagen(idImg, img, tipo) {
+    var resp = confirm("Seguro que desea eliminar esta imagen");
+    if (resp) {
+        $('#cargando2').show();
+        var texto = "";
+        $.ajax({
+            dataType: "json",
+            data: {"idelim": idImg,
+                "img": img,
+                "tipo": tipo
+            },
+            type: 'GET',
+            url: "http://localhost/zahiaCentroEstetica/zahiadmin/Controlador/Fachada.php?clase=Consultas&metodo=borrar_imagenes",
+            success: function(data) {
+                if (data.respuesta === 'si') {
+                    window.location.reload();
+                }
+                else {
+                    window.alert("ocurrio un problema vuelve a intentarlo!")
+                    window.reload();
+                }
+            },
+            error: function(e, es, error) {
+                window.alert("ocurrio un error vuelve a intentarlo");
+            }
+        }
+        );
+    }
 }

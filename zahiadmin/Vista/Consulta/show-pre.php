@@ -116,55 +116,14 @@
                             <a href="#" class="btn btn-large btn-primary" style="width: 111px;" >Descargar</a>
                         </div>
                         <div class="span4">
-                            <a target="in_blank" href="img-antes.php?id_historia=<?php echo $_GET["id_historia"];?>" class="btn btn-large btn-info" style="width: 111px;"  >Antes</a>
+                            <a target="_blank" href="img-antes.php?id_historia=<?php echo $_GET["id_historia"];?>" class="btn btn-large btn-info" style="width: 111px;"  >Antes</a>
                         </div>
                         <div class="span3">
-                            <a href="#" class="btn btn-large btn-inverse" style="width: 111px;" >Despues</a>
+                            <a target="_blank" href="img-despues.php?id_historia=<?php echo $_GET["id_historia"];?>" class="btn btn-large btn-inverse" style="width: 111px;" >Despues</a>
                         </div>
                     </div>
                       </center> 
                 </div>
-<!--                <div class="span12">
-                    <div class="span6">
-                        <center>
-                            <form id="formModificarAntes" action="ajaxuploadAntes.php"  method="POST" enctype="multipart/form-data">    
-                                <h1>Antes</h1>
-                                <img id="img_upd_show" style="max-width: 400px;max-height:400px;height:auto;width: auto;" class="img-responsive" src="<?php echo $_GET["img_antes"]; ?>">
-                                <p><input id="imgono3" type="checkbox" name="imgono3" value="0" onclick="javascript:cambas3();"> Cambiar imagen(Opcional)</p>                        
-                                <p><input id="imageProductUpd" value="imageProductUpd"  name="imageProductUpd" type="file" class="form-control" disabled="true" required=""/></p>
-                                <input  style="display: none" type="text" id="accionp" name="accionp" value="modificar"/>
-                                <input style="display: none" type="text" id="imagenAntigua" name="imagenAntigua" value="<?php echo $_GET["only_img_antes"]; ?>"/>
-                                <input id="id_history" name="id_history" value="<?php echo $_GET["id_historia"]; ?>" type="number" style="display: none">
-                                <div id="cargando3" style="display: none">
-                                    <img src="../../img/cargando.gif"/>
-                                </div>
-                                <label for="descripcion_antes">Descripcion antes:</label>
-                                <textarea id="descripcion_antes" disabled="true" class="form-control" value="<?php echo $_GET["desc_antes"]; ?>" style="width:100%; max-width: 100%; min-height: 114px;max-height: 200px" placeholder="Descripcion antes"></textarea>
-                                <button id="btnEditarImg" disabled="true" class="btn btn-success" value="Modificar">Modificar Antes</button>
-                            </form>
-                        </center>
-                    </div>
-                    <div class="span6">
-                        <center>
-                            <form id="formModificarDespues" action="ajaxuploadDespues.php"  method="POST" enctype="multipart/form-data">    
-                                <h1>Despues</h1>
-                                <img id="img_upd_show_after" style="max-width: 400px;max-height:400px;height:auto;width: auto;" class="img-responsive" src="<?php echo $_GET["img_despues"]; ?>">
-                                <p><input id="imgono4" type="checkbox" name="imgono4" value="0" onclick="javascript:cambas4();"> Cambiar imagen(Opcional)</p>                        
-                                <p><input id="imageDespuesUpd" value="imageDespuesUpd"  name="imageDespuesUpd" type="file" class="form-control" disabled="true" required=""/></p>
-                                <input  style="display: none" type="text" id="accionp" name="accionp" value="modificar"/>
-                                <input style="display: none" type="text" id="imagenAntiguaDespues" name="imagenAntiguaDespues" value="<?php echo $_GET["only_img_despues"]; ?>"/>
-                                <input id="id_history" name="id_history" value="<?php echo $_GET["id_historia"]; ?>" type="number" style="display: none">
-                                <div id="cargando4" style="display: none">
-                                    <img src="../../img/cargando.gif"/>
-                                </div>
-                                <label for="descripcion_despues">Descripcion Despues:</label>
-                                <textarea id="descripcion_despues" disabled="true" class="form-control" value="<?php echo $_GET["desc_despues"]; ?>" style="width:100%; max-width: 100%; min-height: 114px;max-height: 200px" placeholder="Descripcion despues"></textarea>
-                                <button id="btnEditarImgDespues" disabled="true" class="btn btn-success" value="Modificar">Modificar Despues</button>
-                            </form>
-                        </center>
-                         
-                    </div>
-                </div>-->
                 </div>
             </div>
             <script type="text/javascript"src="../js/jquery.min.js"></script> 

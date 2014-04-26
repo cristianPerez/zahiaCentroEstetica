@@ -33,9 +33,8 @@ function Totalmas()
     if ($('#producto1').val() !== "" && $('#precio1').val() !== "") {
         if (!isNaN($('#precio1').val())) {
             sumaTotal = parseInt(sumaTotal) + parseInt($('#precio1').val());
-
-            $('#total').val("$" + parcear(sumaTotal));
-            $('#factura').append(numTratamientos + ") " + $('#producto1').val() + " ------  $" + parcear($('#precio1').val()) + " suma \n");
+            $('#total').val("$" + sumaTotal);
+            $('#factura').append(numTratamientos + ") " + $('#producto1').val() + " ------  $" + $('#precio1').val() + " suma \n");
             $('#producto1').val("");
             $('#precio1').val("");
             numTratamientos = parseInt(numTratamientos) + 1;
@@ -76,7 +75,9 @@ function changeCheckbox(tipo) {
 }
 
 function InsertarConsulta() {
-
+    
+ var respo=confirm("Seguro que quieres almacenar la historia clinica, una vez almacenada solo podra cambiar las imagenes de antes y despues ");
+ if(respo){
     if ($('#cedula').val() !== "" && $('#cumple').val() !== "" && $('#nombrePaciente').val() !== "") {
         if ($('#factura').val() !== "" && $('#total').val() !== "") {
             var l = $('#cargandoConsulta');
@@ -134,6 +135,7 @@ function InsertarConsulta() {
         $('#nombrePaciente').focus();
         $('#cargando2').hide();
     }
+}
 
 }
 
@@ -149,26 +151,27 @@ function validate(key) {
 
 }
 
-function parcear(numero) {
-
-    var number = new String(numero);
-
-    var result = '';
-
-    while (number.length > 3)
-
-    {
-        result = '.' + number.substr(number.length - 3) + result;
-        number = number.substring(0, number.length - 3);
-    }
-
-    result = number + result;
-
-    return result;
-
-}
+//function parcear(numero) {
+//
+//    var number = new String(numero);
+//
+//    var result = '';
+//
+//    while (number.length > 3)
+//
+//    {
+//        result = '.' + number.substr(number.length - 3) + result;
+//        number = number.substring(0, number.length - 3);
+//    }
+//
+//    result = number + result;
+//
+//    return result;
+//
+//}
 function clear(){
     $('#total').val("");
     $('#factura').text("");
     numTratamientos = 1;
+    sumaTotal=0;
 }

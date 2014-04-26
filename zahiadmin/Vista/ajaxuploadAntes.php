@@ -10,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             // looking for format and size validity
             if (in_array($ext, $valid_exts) AND $_FILES['imageProduct']['size'] < $max_size) {
                 $idunico = uniqid();
-                $path = $path.'antes/'.$idunico.'.'.$ext;
+                $path = $path.'antes/antes'.$idunico.'.'.$ext;
                 // move uploaded file from temp to uploads directory
                 if (move_uploaded_file($_FILES['imageProduct']['tmp_name'], $path)) {
-                    echo ($idunico . '.' . $ext);
+                    echo ('antes'.$idunico . '.' . $ext);
                 }
             } else {
                 echo '1';
