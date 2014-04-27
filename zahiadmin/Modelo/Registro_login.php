@@ -35,8 +35,8 @@ function login_usuario(){
  }
  
  function Registro_paciente() {
-        $sql = "INSERT INTO `paciente`(`cedula`, `email`, `nombre_completo`, `nacimiento`, `sexo`, `ocupacion`, `direccion`, `telefono`,`antecedentes_patologicos`,`antecedentes_alergicos`,`antecedentes_quirurgicos`) "
-                . "VALUES (" . $_REQUEST["cedula"]. ",'".$_REQUEST["email"]."','".$_REQUEST["nombre"]."','".$_REQUEST["cumple"]."','".$_REQUEST["sexo"]."','".$_REQUEST["ocupacion"]."','".$_REQUEST["direccion"]."','".$_REQUEST["telefono"]."','".$_REQUEST["patologicos"]."','".$_REQUEST["alergicos"]."','".$_REQUEST["quirurgicos"]."')"
+        $sql = "INSERT INTO `paciente`(`cedula`, `email`, `nombre_completo`, `nacimiento`,`edad`, `sexo`, `ocupacion`, `direccion`, `telefono`,`antecedentes_patologicos`,`antecedentes_alergicos`,`antecedentes_quirurgicos`) "
+                . "VALUES (" . $_REQUEST["cedula"]. ",'".$_REQUEST["email"]."','".$_REQUEST["nombre"]."','".$_REQUEST["cumple"]."',".$_REQUEST["edad"].",'".$_REQUEST["sexo"]."','".$_REQUEST["ocupacion"]."','".$_REQUEST["direccion"]."','".$_REQUEST["telefono"]."','".$_REQUEST["patologicos"]."','".$_REQUEST["alergicos"]."','".$_REQUEST["quirurgicos"]."')"
                 ."ON DUPLICATE KEY UPDATE nombre_completo = '" . $_REQUEST["nombre"] . "';";;
         $conn = new Conexion();
         $conn->conectar();
@@ -51,7 +51,7 @@ function login_usuario(){
         }
     }
  function modificar_paciente() {
-        $sql = "UPDATE `paciente` SET `email`='".$_REQUEST["email"]."',`nombre_completo`='".$_REQUEST["nombre"]."',`nacimiento`='".$_REQUEST["cumple"]."',`sexo`='".$_REQUEST["sexo"]."',`ocupacion`='".$_REQUEST["ocupacion"]."',`direccion`='".$_REQUEST["direccion"]."',`telefono`='".$_REQUEST["telefono"]."',`antecedentes_patologicos`='".$_REQUEST["patologicos"]."',`antecedentes_alergicos`='".$_REQUEST["alergicos"]."',`antecedentes_quirurgicos`='".$_REQUEST["quirurgicos"]."' WHERE `cedula`=".$_REQUEST["cedulab"].";";
+        $sql = "UPDATE `paciente` SET `email`='".$_REQUEST["email"]."',`nombre_completo`='".$_REQUEST["nombre"]."',`nacimiento`='".$_REQUEST["cumple"]."', `edad`=".$_REQUEST["edad"].", `sexo`='".$_REQUEST["sexo"]."',`ocupacion`='".$_REQUEST["ocupacion"]."',`direccion`='".$_REQUEST["direccion"]."',`telefono`='".$_REQUEST["telefono"]."',`antecedentes_patologicos`='".$_REQUEST["patologicos"]."',`antecedentes_alergicos`='".$_REQUEST["alergicos"]."',`antecedentes_quirurgicos`='".$_REQUEST["quirurgicos"]."' WHERE `cedula`=".$_REQUEST["cedulab"].";";
         $conn = new Conexion();
         $conn->conectar();
         try {

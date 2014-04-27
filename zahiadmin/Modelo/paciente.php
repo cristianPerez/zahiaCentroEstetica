@@ -10,6 +10,6 @@ if ($result->num_rows > 0) {
     $fila = $result->fetch_array();
     $respuesta->cedula = $fila['cedula'];
     $respuesta->email = $fila['email'];
-    $respuesta->cumple = $fila['nacimiento'];
+    $respuesta->cumple = $fila['edad'];
 }
 echo json_encode($respuesta);

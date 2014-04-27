@@ -1,9 +1,13 @@
+<?php
+include '../checksession.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="UTF-8">
         <title>zahia</title>
+        <link rel="shortcut icon" href="../../img/favicon.png"> 
         <link rel="stylesheet"  href="../../css/bootstrap.min.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap-combined.min.css" type="text/css" media="all">
@@ -15,7 +19,7 @@
     </head>
     <body>
         <div class="row-fluid">
-<!--            <a href="../home.php" class="btn btn-primary" style="position: fixed">volver</a>-->
+            <a href="javascript:history.back()" class="btn btn-primary" style="position: fixed">volver</a>
             <div class="container">
                 <center>
                     <h1>Informacion Historia Clinica</h1>
@@ -100,12 +104,12 @@
                     </center>   
 <?php }
 ?>                
-                <div class="span12">
+                <div class="span12" style="margin-bottom: 50px">
                     <center>
                     <div class="span6">
                         
                         <h3>Resumen de factura</h3>
-                         <textarea disabled="true" style="width:100%; max-width: 100%; min-height: 114px;max-height: 114px" id="factura" type="text" class="form-control" placeholder="factura" required=""><?php echo $_GET["resumen_factura"]; ?></textarea>
+                         <textarea disabled="true" style="min-width:100%; max-width: 100%; min-height: 114px;max-height: 114px" id="factura" type="text" class="form-control" placeholder="factura" required=""><?php echo $_GET["resumen_factura"]; ?></textarea>
                     </div>
                     <div class="span6">
                         <h3>Total</h3>
@@ -113,13 +117,15 @@
                         <br/>
                         <br/>
                         <div class="span4">
-                            <a href="#" class="btn btn-large btn-primary" style="width: 111px;" >Descargar</a>
+                            <a title="Descargar Resumen de factura" target="_blank" href="pdfConsulta.php?fecha=<?php echo $_GET["fecha_historia_clinica"]; ?>&nombre=<?php echo $_GET["nombre"]; ?>&cedula=<?php echo $_GET["cedula"]; ?>&email=<?php echo $_GET["email"]; ?>&nacimiento=<?php echo $_GET["nacimiento"]; ?>&consulta=<?php if ($_GET['tipo_consulta'] == 1) {echo 'Facial';}else{echo 'Corporal';}?>&examen_fisico=<?php echo $_GET["desc_c"]; ?>&peso=<?php echo $_GET["peso"]; ?>&altura=<?php echo $_GET["altura"]; ?>&imc=<?php echo $_GET["icm"]; ?>&cintura_alta=<?php echo $_GET["cintura_alta"]; ?>&cintura_media=<?php echo $_GET["cintura_media"]; ?>&cintura_baja=<?php echo $_GET["cintura_baja"]; ?>&brazo_derecho=<?php echo $_GET["brazo_derecho"]; ?>&brazo_izquierdo=<?php echo $_GET["brazo_izquierdo"]; ?>&muslo_derecho=<?php echo $_GET["muslo_derecho"]; ?>&muslo_izquierdo=<?php echo $_GET["muslo_izquierdo"]; ?>&factura=<?php echo $_GET["resumen_factura"]; ?>&total=<?php echo $_GET["total_factura"]; ?>" style="width: 50px;height: 50px;">
+                                <img src="../../img/pdf.png" style="width: 50px;height: 50px" />
+                            </a>
                         </div>
                         <div class="span4">
-                            <a target="_blank" href="img-antes.php?id_historia=<?php echo $_GET["id_historia"];?>" class="btn btn-large btn-info" style="width: 111px;"  >Antes</a>
+                            <a  href="img-antes.php?id_historia=<?php echo $_GET["id_historia"];?>" class="btn btn-large btn-info" style="width: 111px;"  >Antes</a>
                         </div>
                         <div class="span3">
-                            <a target="_blank" href="img-despues.php?id_historia=<?php echo $_GET["id_historia"];?>" class="btn btn-large btn-inverse" style="width: 111px;" >Despues</a>
+                            <a  href="img-despues.php?id_historia=<?php echo $_GET["id_historia"];?>" class="btn btn-large btn-inverse" style="width: 111px;" >Despues</a>
                         </div>
                     </div>
                       </center> 

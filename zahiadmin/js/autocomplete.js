@@ -16,7 +16,7 @@ $(document).ready(function() {
             $("#cargando").hide();
             $("#cedula").val(respuesta.cedula);
             $("#email").val(respuesta.email);
-            $("#cumple").val(respuesta.cumple);
+            $("#edadBusqueda").val(respuesta.cumple);
             $('#tipo_consulta').attr('disabled', false);
         });
     });

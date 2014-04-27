@@ -3,14 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Vista/home.php</file>
-            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Vista/Consulta/consulta.php</file>
-            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Vista/Consulta/img-antes.php</file>
-            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/js/addImgAntes.js</file>
-            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Vista/HistoriaClinica/BuscarHistoria.php</file>
-            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/js/Consultas.js</file>
-            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Modelo/Consultas.php</file>
-            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Vista/Usuarios/BuscarPaciente.php</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Vista/Consulta/pdfConsulta.php</file>
+            <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/Vista/Consulta/show-pre.php</file>
             <file>file:/C:/xampp/htdocs/zahiaCentroEstetica/zahiadmin/js/buscarHistoria.js</file>
         </group>
     </open-files>

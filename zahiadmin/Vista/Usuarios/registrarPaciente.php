@@ -7,7 +7,8 @@ include '../checksession.php';
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="UTF-8">
         <title>zahia</title>
-        <link rel="stylesheet"  href="../../css/bootstrap.min_1.css" type="text/css" media="all">
+        <link rel="shortcut icon" href="../../img/favicon.png"> 
+        <link rel="stylesheet"  href="../../css/bootstrap.min.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/style.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/signin.css" type="text/css" media="all">
@@ -15,61 +16,25 @@ include '../checksession.php';
         <link rel="stylesheet"  href="../../css/bootstrap-responsive.css" type="text/css" media="all">
     </head>
     <body>
-        <div class="row-fluid">            
-            <div class="container">
-
-                <nav class="navbar navbar-default" role="navigation">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button> 
-                        <a href="../home.php" class="navbar-brand"><img src="../../img/zahialogo.png" style="width: 40px;height: 20px" class="img-responsive"/></a>
-
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a href="../home.php">Home</a>
-                            </li>
-                            <li class="active">
-                                <a href="#">Registro de paciente</a>
-                            </li>
-                            <li>
-                                <a href="BuscarPaciente.php">Buscar paciente</a>
-                            </li>
-                        </ul>
-
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="javascript:cerrar_session();">Cerrar sesión</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </nav>
-
-            </div>
-
+        <div class="row-fluid">   
+            <a href="javascript:history.back()" class="btn btn-primary" style="position: fixed">volver</a>
             <center>
-                <div class="container">
+                <div id="containerPrincipalRegistro" class="container">
                     <div class="wpb_wrapper">
                         <h2 class="box_header" style="color: gray;">Registro de paciente</h2>
                     </div> 
-                    <form action="javascript:registrar_paciente();" style="padding-right: 10%; padding-left: 10%" method="POST">
+                    <form id="frmReistroUsuario" action="javascript:registrar_paciente();" style="padding-right: 10%; padding-left: 10%" method="POST">
+                        <label class="label-primary" style="color: white;opacity: 0.7;font-size:18px;"><h4>Informacion Personal</h4></label>
                         <div class="form-group">
-                            <input id="cedula" style="width: 100%; height: auto;"  type="number" class="form-control" placeholder="cedula pasiente(*)" required=""/>
-                            <input id="email" style="width: 100%; height: auto;"  type="email" class="form-control" placeholder="Email(*)"/>
-                            <input id="nombre" style="width: 100%; height: auto;"  type="text" class="form-control" placeholder="Nombre completo(*)" required=""/>
+                            <input id="cedula" style="width: 99%; height: auto;"  type="number" class="form-control" placeholder="cedula pasiente(*)" required=""/>
+                            <input id="email" style="width: 99%; height: auto;"  type="email" class="form-control" placeholder="Email(*)"/>
+                            <input id="nombre" style="width: 99%; height: auto;"  type="text" class="form-control" placeholder="Nombre completo(*)" required=""/>
                         </div>
                         <div class="form-group">
-                            <div style="width: 100%" id="datetimepicker" class="input-append date form-group">
-                                <input id="cumple" class="form-control" id="birthday" type="text" style="width:100%;height: 30px;" placeholder="Cumpleaños(*)" required=""/>
-                                <span class="add-on" style="height: 30px;">
-                                    <i data-date-icon="icon-calendar" style="margin-top: 40%"></i>
+                            <div style="width: 97%;margin-left: -3%;" id="datetimepicker" class="input-append date form-group">
+                                <input id="cumple" class="form-control" id="birthday" type="text" style="width:99%;" placeholder="Cumpleaños(*)" required=""/>
+                                <span class="add-on" >
+                                    <i data-date-icon="icon-calendar" style="margin-top: 20%"></i>
                                 </span>
                             </div>
                         </div>    
@@ -91,35 +56,38 @@ include '../checksession.php';
                                             <input onclick="changeCheckbox('M')" class="form-control" id="Femenino" type="checkbox" style="width:20px;height: 20px;" value="0"/>
                                         </td>
                                         <td style="padding: 10px;"> 
-                                            <input  class="form-control" id="sexo" type="checkbox" style="width:20px;height: 20px; display: none" value="nada"/>
+                                            <input  class="form-control" id="sexo" type="text" style="display: none" value="nada"/>
                                         </td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="form-group">
-                                <p><input style="max-width:100%; width: 100%; min-height: 30px;" id="ocupacion" type="text" class="form-control" placeholder="Ocupacion" required=""/></p>
-                                <p><input style="max-width:100%; width: 100%; min-height: 30px;" id="direccion" type="text" class="form-control" placeholder="Direccion" required=""/></p>
+                                <p><input style="max-width:99%; width: 99%;" id="ocupacion" type="text" class="form-control" placeholder="Ocupacion"/></p>
+                                <p><input style="max-width:99%; width: 99%;" id="direccion" type="text" class="form-control" placeholder="Direccion"/></p>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" id="telefono" type="text" style="width:100%;height: 30px;" placeholder="Numero telefonico 3015987864"/>
+                                <input class="form-control" id="telefono" type="text" style="width:99%;" placeholder="Numeros telefonicos 3015987864 - 8754039"/>
                             </div>
                             <div class="form-group">
-                                <h3 style="color: gray;">Antecedentes</h3>
-                                <textarea class="form-control" id="antPatologicos" type="text" style="max-width:100%;max-height: 100px;min-height: 70px;" placeholder="Patológicos"></textarea>
-                                <textarea class="form-control" id="antAlergicos" type="text" style="max-width:100%;max-height: 100px;min-height: 70px;" placeholder="Alérgicos"></textarea>
-                                <textarea class="form-control" id="antQuirurgicos" type="text" style="max-width:100%;max-height: 100px;min-height: 70px;" placeholder="Quirúrgicos"></textarea>
+                        <label class="label-primary" style="color: white;opacity: 0.7;font-size:18px;"><h4>Antecedentes</h4></label>
+                                <textarea class="form-control" id="antPatologicos" type="text" style="min-width: 99%;max-width:99%;max-height: 100px;min-height: 70px;" placeholder="Patológicos"></textarea>
+                                <textarea class="form-control" id="antAlergicos" type="text" style="min-width: 99%;max-width:99%;max-height: 100px;min-height: 70px;" placeholder="Alérgicos"></textarea>
+                                <textarea class="form-control" id="antQuirurgicos" type="text" style="min-width: 99%;max-width:99%;max-height: 100px;min-height: 70px;" placeholder="Quirúrgicos"></textarea>
                             </div>
-                            <table>
+                            <table style="width: 100%">
                                 <tr>
-                                    <td>
-                                        <button id="btnEnviarContacto" type="submit" class="btn btn-info">Registrar</button>
-                                    </td>
+                                <center>
                                     <td>
                                         <div id="cargandoAgregarPaciente" style="display:none ;width: 35px;height: 35px;margin-top: 5px;">
                                             <img src="../../img/cargando.gif" width="25" height="17" style="margin-top:3px" alt="gift para espera de envios de datos"/></div> 
                                     </td>
                                     <td style="width: 200px; height: auto; display: none">
                                         <label id="textoResultante2"></label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button id="btnEnviarContacto" type="submit" style="width: 100%" class="btn btn-primary">Registrar</button>
                                     </td>
                                 </tr>
                             </table> 
@@ -131,7 +99,6 @@ include '../checksession.php';
         <script type="text/javascript"src="../../js/RegistroLogin.js"></script> 
         <script type="text/javascript"src="../../js/bootstrap-datetimepicker.min.js"></script>
         <script type="text/javascript"src="../../js/bootstrap.min.js"></script>
-        <script type="text/javascript"src="../../js/scripts.js"></script>
         <script type="text/javascript">
                                                 $('#datetimepicker').datetimepicker({
                                                     format: 'yyyy-MM-dd',

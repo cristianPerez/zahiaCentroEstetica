@@ -7,6 +7,7 @@ include '../checksession.php';
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="UTF-8">
         <title>zahia</title>
+        <link rel="shortcut icon" href="../../img/favicon.png"> 
         <link rel="stylesheet"  href="../../css/bootstrap.min.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap-combined.min.css" type="text/css" media="all">
@@ -18,7 +19,7 @@ include '../checksession.php';
     <body>
 
         <div class="row-fluid">
-            <a href="../home.php" class="btn btn-primary" style="position: fixed">volver</a>
+            <a href="javascript:history.back()" class="btn btn-primary" style="position: fixed">volver</a>
             <center>
                 <div class="container">
                     <div class="wpb_wrapper">
@@ -29,21 +30,32 @@ include '../checksession.php';
                         <div id="cargando" style="display: none">
                             <img src="../../img/cargando.gif"/>
                         </div>
-                        <input class="form-control" type="text" id="nombrePaciente" name="nombrePaciente" value="" placeholder="Busqueda por nombre entre los pacientes" style="width: 100%" required=""/>
-                        <input class="form-control" type="text" id="cedula" name="cedula" value="" disabled="true" placeholder="Cedula" required=""/>
-                        <input class="form-control" type="text" id="email" name="email" value="" disabled="true" placeholder="Email"/>
-                        <input class="form-control" type="text" id="cumple" name="cumple" value="" disabled="true" placeholder="Fecha de nacimiento"/>
-                    </form>   
+                        <input class="form-control" type="text" id="nombrePaciente" name="nombrePaciente" value="" placeholder="Buscar por nombre un paciente" style="width: 99%" required=""/>
+                        <div class="container">
+                            <div class="span4">
+                            <label class="label-primary" style="color: white;opacity: 0.7;font-size:18px;"><h4>Cedula</h4></label>
+                            <input class="form-control" type="text" id="cedula" name="cedula" style="width: 96%;text-align: center;" value="" disabled="true" placeholder="Cedula" required=""/>
+                        </div>
+                        <div class="span4">
+                            <label class="label-primary" style="color: white;opacity: 0.7;font-size:18px;"><h4>Email</h4></label>
+                            <input class="form-control" type="text" id="email" name="email" style="width: 96%;text-align: center;" value="" disabled="true" placeholder="Email"/>
+                        </div>
+                        <div class="span4">
+                            <label class="label-primary" style="color: white;opacity: 0.7;font-size:18px;"><h4>Edad</h4></label>
+                            <input class="form-control" type="text" id="edadBusqueda" style="width: 96%;text-align: center;" name="edadBusqueda" value="" disabled="true" placeholder="Edad"/>
+                        </div>
+                        </div>
+                    </form>
                     <form id="formIngresarProducto" action="javaScript:InsertarConsulta()"  method="POST" enctype="multipart/form-data">
                         <div id="tipo_consulta_div" class="container-fluid">
-                            <h3 class="box_header" style="color: gray;">Selecciona el tipo de consulta</h3>
+                            <h3  style="color: gray;">Selecciona el tipo de consulta</h3>
                             <select class="selectpicker" id="tipo_consulta" disabled="true">
                                 <option value="1">Facial</option>
                                 <option value="2">Corporal</option>
                             </select>
                         </div>
-
-                        <h3 style="color: gray;">Examen físico</h3> 
+                        <br/>
+                        <label class="label-primary" style="color: white;opacity: 0.7;font-size:18px;"><h4>Examen Fisico</h4></label>
                         <div id="examen_fisico" class="container-fluid"  aria-hidden="true" style="display: none">                                    
                             <div class="span4">
                                 <h3 style="color: gray;">Medidas en general</h3>
@@ -82,17 +94,15 @@ include '../checksession.php';
                                 <input  class="form-group" id="muslo_izquierdo"  step="0.01" type="number" class="form-control" placeholder="(60)" />
 
                             </div>
-
-
                         </div>
-                <div class="container">
-                    <p><textarea style="width:100%; max-width: 100%; min-height: 114px;max-height: 200px" id="dudasConsulta" type="text" class="form-control" placeholder="Descripcion Examen Físico" required=""></textarea></p>
-                </div>
+                
+                    <p><textarea style="min-width:99%; max-width: 99%; min-height: 114px;max-height: 200px" id="dudasConsulta" type="text" class="form-control" placeholder="Descripcion Examen Físico" required=""></textarea></p>
+                
 
-                <h3 style="color: gray;">Facturación</h3>
+                    <label class="label-primary" style="color: white;opacity: 0.7;font-size:18px;"><h4>Facturacion</h4></label>
 
                 <div id="fact2" class="container">
-                    <div class="span12" >
+                    
                         <div class="span6">
                             <div class="span12">
                                 <label>Producto</label>
@@ -110,7 +120,7 @@ include '../checksession.php';
                             </div>
                         </div>
                         <div class="span6">
-                            <p><textarea disabled="true" style="width:100%; max-width: 100%; min-height: 114px;max-height: 200px" id="factura" type="text" class="form-control" placeholder="factura" required=""></textarea></p>
+                            <p><textarea disabled="true" style="min-width:98%; max-width: 98%; min-height: 114px;max-height: 200px" id="factura" type="text" class="form-control" placeholder="factura" required=""></textarea></p>
                             <div class="span12">
                                 
                                 <div class="span3">
@@ -124,7 +134,6 @@ include '../checksession.php';
                                 </div>
                                 
                             </div>
-                        </div>
                     </div>
                     <div id="cargandoConsulta" style="display: none">
                         <img src="../../img/cargando.gif"/>

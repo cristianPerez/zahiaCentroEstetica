@@ -1,9 +1,13 @@
+<?php
+include '../checksession.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="UTF-8">
         <title>zahia</title>
+        <link rel="shortcut icon" href="../../img/favicon.png"> 
         <link rel="stylesheet"  href="../../css/bootstrap.min.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap-combined.min.css" type="text/css" media="all">
@@ -15,8 +19,9 @@
     </head>
     <body onload="javascript:mostrarImagenes(<?php echo $_GET["id_historia"]; ?>,2)">
         <div class="row-fluid">
+            <a href="javascript:history.back()" class="btn btn-primary" style="position: fixed">volver</a>
             <center>
-                <h1>Imagenes de Despues del tratamiento</h1>
+                <h1 style="color: gray">Imagenes de Despues del tratamiento</h1>
             </center>
             <center>
                     <div id="cargando2" style="display: none">

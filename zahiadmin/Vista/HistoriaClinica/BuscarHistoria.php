@@ -1,10 +1,14 @@
+<?php
+include '../checksession.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="UTF-8">
         <title>zahia</title>
-        <link rel="stylesheet"  href="../../css/bootstrap.min_1.css" type="text/css" media="all">
+        <link rel="shortcut icon" href="../../img/favicon.png"> 
+        <link rel="stylesheet"  href="../../css/bootstrap.min.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/bootstrap.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/style.css" type="text/css" media="all">
         <link rel="stylesheet"  href="../../css/signin.css" type="text/css" media="all">
@@ -13,7 +17,7 @@
     </head>
     <body>
         <div class="row-fluid">     
-            <a href="../home.php" class="btn btn-primary" style="position: fixed">volver</a>
+            <a href="javascript:history.back()" class="btn btn-primary" style="position: fixed">volver</a>
             <center>
                 <div class="container">
                     <div class="wpb_wrapper">
@@ -22,7 +26,7 @@
                     <div class="form-group">
                         <form id="formBusqueda" action="javascript:buscar_historias();" method="POST">      
                             <center>
-                                        <input id="cedulaBusquedaHistoria" style="width: 50%; height: auto;"  type="number" class="form-control" placeholder="cedula paciente(*)" required=""/>
+                                        <input id="cedulaBusquedaHistoria" style="width: 50%;  height: 30px;font-size: 20px;text-align: center;"  type="number" class="form-control" placeholder="cedula paciente(*)" required=""/>
                                         <br/>
                                         <button value="BuscarPaciente" name="BuscarPaciente" id="BuscarPaciente" style="width: 20%;" class="btn btn-primary">Buscar</button>
                                         <div id="cargandoBuscarHistoria" style="display:none ;width: 35px;height: 35px;margin-top: 5px;">
