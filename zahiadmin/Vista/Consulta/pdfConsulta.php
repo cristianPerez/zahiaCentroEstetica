@@ -1,5 +1,5 @@
 <?php
-include ('fpdf/fpdf.php');
+include ('./fpdf.php');
 /* tenemos que generar una instancia de la clase */
 $pdf = new FPDF();
 $pdf->AddPage();
@@ -25,10 +25,10 @@ $pdf->SetTextColor('124', '126', '128');
 $pdf->Cell(80, 7, $_GET['email'], 1, 0, 'C');
 $pdf->Ln();
 $pdf->SetTextColor('0', '0', '0');
-$pdf->Cell(50, 7, "Nacimiento ", 1, 0, 'C');
+$pdf->Cell(50, 7, "Edad ", 1, 0, 'C');
 $pdf->SetTextColor('124', '126', '128');
-$pdf->Cell(80, 7, $_GET['nacimiento'], 1, 0, 'C');
-$pdf->Image('../../img/zahialogo.png', 147, 10, 50);
+$pdf->Cell(80, 7, $_GET['edad'], 1, 0, 'C');
+$pdf->Image('../../img/zahialogo.jpg', 147, 10, 50);
 $pdf->Ln();
 $pdf->SetTextColor('0', '0', '0');
 $pdf->Cell(50, 7, "A nombre de ", 1, 0, 'C');

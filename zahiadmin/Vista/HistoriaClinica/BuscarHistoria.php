@@ -36,6 +36,7 @@ include '../checksession.php';
                         </form>
                     </div>
                 </div>
+            </center>
                 <div class="container" id="busquedasHistorias">
                     
                 </div>

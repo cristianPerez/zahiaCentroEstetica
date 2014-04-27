@@ -12,7 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $idunico = uniqid();
                 $path = $path.'antes/antes'.$idunico.'.'.$ext;
                 // move uploaded file from temp to uploads directory
+                chmod("../uploads/antes/", 0777);
                 if (move_uploaded_file($_FILES['imageProduct']['tmp_name'], $path)) {
+                chmod("../uploads/antes/", 0751);    
                     echo ('antes'.$idunico . '.' . $ext);
                 }
             } else {

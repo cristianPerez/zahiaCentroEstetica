@@ -93,7 +93,7 @@ class Consultas {
     
     function buscarHistorias(){
         
-        $sql = "SELECT hc.id, hc.peso, hc.altura, hc.masa_corporal, hc.fecha, hc.descripcion_consulta, hc.Usuario_atendio, hc.tipo_consulta_id, hc.paciente_cedula, hc.cintura_alta, hc.cintura_media, hc.cintura_baja, hc.brazo_derecho, hc.brazo_izquierdo, hc.muslo_derecho, hc.muslo_izquierdo, hc.factura, hc.costo_total ,p.nombre_completo,p.email , p.nacimiento FROM historia_clinica hc ,paciente p WHERE hc.paciente_cedula =".$_REQUEST["cedula"]." and p.cedula = hc.paciente_cedula order by id desc";
+        $sql = "SELECT hc.id, hc.peso, hc.altura, hc.masa_corporal, hc.fecha, hc.descripcion_consulta, hc.Usuario_atendio, hc.tipo_consulta_id, hc.paciente_cedula, hc.cintura_alta, hc.cintura_media, hc.cintura_baja, hc.brazo_derecho, hc.brazo_izquierdo, hc.muslo_derecho, hc.muslo_izquierdo, hc.factura, hc.costo_total ,p.nombre_completo,p.email , p.nacimiento,p.edad FROM historia_clinica hc ,paciente p WHERE hc.paciente_cedula =".$_REQUEST["cedula"]." and p.cedula = hc.paciente_cedula order by id desc";
         $conn = new Conexion();
         $conn->conectar();
         try {
@@ -122,7 +122,8 @@ class Consultas {
                                     "costo_total" => $row['costo_total'],
                                     "nombre_paciente" => $row['nombre_completo'],
                                     "email_paciente" => $row['email'],
-                                    "cumple" => $row['nacimiento']
+                                    "cumple" => $row['nacimiento'],
+                                    "edad" => $row['edad']
                         );
                 $i++;
             }
