@@ -78,7 +78,7 @@ function InsertarConsulta() {
     
  var respo=confirm("Seguro que quieres almacenar la historia clinica, una vez almacenada solo podra cambiar las imagenes de antes y despues ");
  if(respo){
-    if ($('#cedula').val() !== "" && $('#cumple').val() !== "" && $('#nombrePaciente').val() !== "") {
+    if ($('#cedula').val() !== "" && $('#nombrePaciente').val() !== "") {
         if ($('#factura').val() !== "" && $('#total').val() !== "") {
             var l = $('#cargandoConsulta');
             l.show();

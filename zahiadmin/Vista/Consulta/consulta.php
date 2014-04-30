@@ -130,7 +130,7 @@ include '../checksession.php';
                                 </div>
                                 <div class="span9">
                                     <label for="total">Total:</label>
-                                    <input type="text" style="font-size: 30px;height: 40px;text-align: center;" class="form-control" id="total" value="" disabled="true"/>
+                                    <input type="text" style="font-size: 30px;height: 40px;text-align: center;" class="form-control" id="total" value="" disabled="true" required=""/>
                                 </div>
                                 
                             </div>

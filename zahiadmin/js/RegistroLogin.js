@@ -32,7 +32,16 @@ function registrar_paciente(){
     
     if($('#cedula').val()!=="" && $('#nombre').val()!==""&& $('#sexo').val()!=="nada"){
         if(!isNaN($('#cedula').val())){
-        var edad=calcular_edad($('#cumple').val());
+        var cumple;    
+        var edad;
+        if($('#cumple').val()!==""){
+            cumple= $('#cumple').val();
+            edad=calcular_edad($('#cumple').val());
+        }
+        else{
+            cumple="0-0-0";
+            edad=0;
+        }
     $.ajax({
         dataType: "json",
         data:
@@ -40,7 +49,7 @@ function registrar_paciente(){
             "cedula": $('#cedula').val(),
             "email": $('#email').val(),
             "nombre": $('#nombre').val(),
-            "cumple": $('#cumple').val(),
+            "cumple": cumple,
             "edad": edad,
             "sexo": $('#sexo').val(),
             "ocupacion": $('#ocupacion').val(),
@@ -90,7 +99,18 @@ function modificar_paciente(){
     $('#cargandoModificarPaciente').show();
     
     if($('#cedulaBusqueda2').val()!=="" && $('#nombre').val()!==""&& $('#sexo').val()!=="nada"){
-        var edad=calcular_edad($('#birthday').val());
+        var cumple;    
+        var edad;
+        if($('#birthday').val()!=="" && $('#birthday').val()!=="0-0-0"){
+            window.alert("Entra al if");
+            cumple= $('#birthday').val();
+            edad=calcular_edad($('#birthday').val());
+        }
+        else{
+            window.alert("Entra al else");
+            cumple="0-0-0";
+            edad=0;
+        }
     $.ajax({
         dataType: "json",
         data:
@@ -98,7 +118,7 @@ function modificar_paciente(){
             "cedulab": $('#cedulaBusqueda').val(),
             "email": $('#emailBusqueda').val(),
             "nombre": $('#nombreBusqueda').val(),
-            "cumple": $('#birthday').val(),
+            "cumple": cumple,
             "edad": edad,
             "sexo": $('#sexoBusqueda').val(),
             "ocupacion": $('#ocupacionBusqueda').val(),
@@ -115,6 +135,7 @@ function modificar_paciente(){
             if(data.respuesta==='si'){
                 $('#cedulaBusqueda').val("");
                 $('#formModificar').hide('slow');
+                $('#cargandoModificarPaciente').hide('slow');
                 $('#containerPrincipal').prepend("<div id='alertModificacion' class='alert alert-info' style='margin-top:30px;'><a class='close' data-dismiss='alert' href='javascript:ocultarAlert(alertModificacion)' aria-hidden='true'>&times;</a><h2>Modificado correctamente</h2></div>");
                 $('#formModificar').each (function(){this.reset();});
             }
@@ -122,6 +143,7 @@ function modificar_paciente(){
             {
                 $('#cedulaBusqueda').val("");
                 $('#formModificar').hide('slow');
+                $('#cargandoModificarPaciente').hide('slow');
                 $('#containerPrincipal').prepend("<div id='alertModificacion' class='alert alert-danger'><a class='close' data-dismiss='alert' href='javascript:ocultarAlert(alertModificacion)' aria-hidden='true'>&times;</a><h2>No pudo modificar intentalo de nuevo</h2></div>");
                 $('#formModificar').each (function(){this.reset();});
             }
@@ -131,8 +153,7 @@ function modificar_paciente(){
             window.location.reload();
         }
     }
-); 
-        
+);     
     }
     else{
         window.alert("Hay campos incompletos revise el sexo del paciente !!!");

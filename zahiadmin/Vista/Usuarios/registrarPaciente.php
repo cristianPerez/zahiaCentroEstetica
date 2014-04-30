@@ -32,7 +32,7 @@ include '../checksession.php';
                         </div>
                         <div class="form-group">
                             <div style="width: 97%;margin-left: -3%;" id="datetimepicker" class="input-append date form-group">
-                                <input id="cumple" class="form-control" id="birthday" type="text" style="width:99%;" placeholder="Cumpleaños(*)" required=""/>
+                                <input id="cumple" class="form-control" id="birthday" type="text" style="width:99%;" placeholder="Cumpleaños(*)"/>
                                 <span class="add-on" >
                                     <i data-date-icon="icon-calendar" style="margin-top: 20%"></i>
                                 </span>

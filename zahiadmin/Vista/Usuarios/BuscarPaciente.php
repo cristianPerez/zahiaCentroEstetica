@@ -46,7 +46,7 @@ include '../checksession.php';
                         <div class="form-group">
                             <div style="width: 100%" id="datetimepicker" class="input-append date form-group">
                                 <label class="label-primary" style="color: white;opacity: 0.7;font-size:18px;">Cumpleaños</label>
-                                <input id="birthday" class="form-control"  type="text" style="width:100%;height: auto;text-align: center;font-size:18px;" placeholder="Cumpleaños(*)" required=""/>
+                                <input id="birthday" class="form-control"  type="text" style="width:100%;height: auto;text-align: center;font-size:18px;" placeholder="Cumpleaños(*)"/>
                                 <span class="add-on" style="height: 30px;">
                                     <i data-date-icon="icon-calendar" style="margin-top: 20%"></i>
                                 </span>
@@ -80,9 +80,9 @@ include '../checksession.php';
                             </div>
                             <div class="form-group">
                                 <label class="label-primary" style="color: white;opacity: 0.7;font-size:18px;">Ocupación</label>
-                                <p><input style="max-width:100%; width: 100%; height: auto;text-align: center;font-size:18px;" id="ocupacionBusqueda" type="text" class="form-control" placeholder="Ocupacion" required=""/></p>
+                                <p><input style="max-width:100%; width: 100%; height: auto;text-align: center;font-size:18px;" id="ocupacionBusqueda" type="text" class="form-control" placeholder="Ocupacion"/></p>
                                 <label class="label-primary" style="color: white;opacity: 0.7;font-size:18px;">Dirección</label>
-                                <p><input style="max-width:100%; width: 100%; height: auto;text-align: center;font-size:18px;" id="direccionBusqueda" type="text" class="form-control" placeholder="Direccion" required=""/></p>
+                                <p><input style="max-width:100%; width: 100%; height: auto;text-align: center;font-size:18px;" id="direccionBusqueda" type="text" class="form-control" placeholder="Direccion"/></p>
                             </div>
                             <div class="form-group">
                                 <label class="label-primary" style="color: white;opacity: 0.7;font-size:18px;">Telefonos</label>
